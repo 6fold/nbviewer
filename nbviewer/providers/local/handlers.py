@@ -272,7 +272,7 @@ class LocalFileHandler(RenderingHandler):
                 ipynbs.append(entry)
 
         dirs.sort(key=lambda e: e['name'])
-        ipynbs.sort(key=lambda e: e['name'])
+        ipynbs.sort(key=lambda e: e['modtime'], reverse=True)
 
         entries.extend(dirs)
         entries.extend(ipynbs)
