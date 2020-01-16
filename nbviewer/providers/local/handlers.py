@@ -259,18 +259,14 @@ class LocalFileHandler(RenderingHandler):
             if os.path.isdir(absf):
                 st = os.stat(absf)
                 dt = datetime.utcfromtimestamp(st.st_mtime)
-                cr = datetime.utcfromtimestamp(st.st_ctime)
                 entry['modtime'] = dt.isoformat() + 'Z'
-                entry['ctime'] = dt.isoformat() + 'Z'
                 entry['url'] = url_path_join(self._localfile_path, path, f)
                 entry['class'] = 'fa fa-folder-open'
                 dirs.append(entry)
             elif f.endswith('.ipynb'):
                 st = os.stat(absf)
                 dt = datetime.utcfromtimestamp(st.st_mtime)
-                cr = datetime.utcfromtimestamp(st.st_ctime)
                 entry['modtime'] = dt.isoformat() + 'Z'
-                entry['ctime'] = dt.isoformat() + 'Z'
                 entry['url'] = url_path_join(self._localfile_path, path, f)
                 entry['class'] = 'fa fa-book'
                 ipynbs.append(entry)
