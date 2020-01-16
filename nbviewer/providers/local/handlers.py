@@ -146,7 +146,7 @@ class LocalFileHandler(RenderingHandler):
         if os.path.isdir(fullpath):
             html = self.show_dir(fullpath, path)
             await self.cache_and_finish(html)
-            return 
+            return
 
         is_download = self.get_query_arguments('download')
         if is_download:
@@ -272,7 +272,7 @@ class LocalFileHandler(RenderingHandler):
                 ipynbs.append(entry)
 
         dirs.sort(key=lambda e: e['name'])
-        ipynbs.sort(key=lambda e: e['modtime'], reverse=True)
+        ipynbs.sort(key=lambda e: e['name'], reverse=True)
 
         entries.extend(dirs)
         entries.extend(ipynbs)
